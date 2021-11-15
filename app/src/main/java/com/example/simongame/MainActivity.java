@@ -12,8 +12,11 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity {
     public Game newGame;
+    public ArrayList<String> userColorsClicked;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
     public void startGame(View v){
+        userColorsClicked = new ArrayList<String>();
         //Toast.makeText(this, "hey", Toast.LENGTH_SHORT).show();
         newGame= new Game();
         startRound();
@@ -31,10 +35,12 @@ public class MainActivity extends AppCompatActivity {
 
     public void startRound()
     {
+        TextView t = findViewById(R.id.textView);
+        t.setText("");
         newGame.getPattern();
         final Handler handler = new Handler();
         Button b = findViewById(R.id.buttonSimon);
-       int delay=2000;
+       int delay=1000;
         for(int i=0;i<newGame.currentPattern.size();i++){
             if(newGame.currentPattern.get(i)=="yellow"){
 
@@ -45,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
                         b.setBackgroundColor(Color.YELLOW);
                     }
                 }, delay);
-                delay+=2000;
+                delay+=1000;
                 handler.postDelayed(new Runnable() {
                     @Override
                     public void run() {
@@ -53,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
                         b.setBackgroundColor(Color.GRAY);
                     }
                 }, delay);
-                delay+=2000;
+                delay+=1000;
 
             }
             if(newGame.currentPattern.get(i)=="blue"){
@@ -65,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
                         b.setBackgroundColor(Color.BLUE);
                     }
                 }, delay);
-                delay+=2000;
+                delay+=1000;
                 handler.postDelayed(new Runnable() {
                     @Override
                     public void run() {
@@ -73,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
                         b.setBackgroundColor(Color.GRAY);
                     }
                 },delay);
-                delay+=2000;
+                delay+=1000;
 
             }
             if(newGame.currentPattern.get(i)=="green"){
@@ -85,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
                         b.setBackgroundColor(Color.GREEN);
                     }
                 }, delay);
-                delay+=2000;
+                delay+=1000;
                 handler.postDelayed(new Runnable() {
                     @Override
                     public void run() {
@@ -93,7 +99,7 @@ public class MainActivity extends AppCompatActivity {
                         b.setBackgroundColor(Color.GRAY);
                     }
                 }, delay);
-                delay+=2000;
+                delay+=1000;
             }
             if(newGame.currentPattern.get(i)=="red") {
 
@@ -104,7 +110,7 @@ public class MainActivity extends AppCompatActivity {
                         b.setBackgroundColor(Color.RED);
                     }
                 }, delay);
-                delay+=2000;
+                delay+=1000;
                 handler.postDelayed(new Runnable() {
                     @Override
                     public void run() {
@@ -112,7 +118,7 @@ public class MainActivity extends AppCompatActivity {
                         b.setBackgroundColor(Color.GRAY);
                     }
                 }, delay);
-                delay+=2000;
+                delay+=1000;
             }
 
             if (i==newGame.currentPattern.size()-1){
@@ -136,12 +142,27 @@ public class MainActivity extends AppCompatActivity {
             handler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    // Do something after 2s = 2000ms
+                    //userColorsClicked.forEach(); and currentPattern for each? false bool set to true
+                    //check to verify it equals currentPattern
                     Toast.makeText(MainActivity.this, "hi", Toast.LENGTH_SHORT).show();
                 }
-            }, 2000*newGame.round);
+            }, 1000*newGame.round);
 
        // newGame.currentPattern;
 
     }
+    public void setClickedGreen(View v){
+        userColorsClicked.add("green");
+    }
+    public void setClickedYellow(View v){
+        userColorsClicked.add("yellow");
+    }
+    public void setClickedRed(View v){
+        userColorsClicked.add("red");
+    }
+
+    public void setClickedBlue(View v){
+        userColorsClicked.add("blue");
+    }
+
 }

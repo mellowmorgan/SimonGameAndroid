@@ -28,6 +28,7 @@
         android:layout_marginTop="88dp"
         android:backgroundTint="#5ec639"
         android:text=""
+        android:onClick="setClickedGreen"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
@@ -38,6 +39,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
+        android:onClick="setClickedRed"
         android:backgroundTint="#ff0000"
         android:text=""
         app:layout_constraintEnd_toEndOf="parent"
@@ -48,6 +50,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
+        android:onClick="setClickedBlue"
         android:backgroundTint="#0000ff"
         android:text=""
         app:layout_constraintEnd_toEndOf="parent"
@@ -55,6 +58,7 @@
         app:layout_constraintTop_toBottomOf="@+id/buttonRed" />
     <Button
         android:id="@+id/buttonYellow"
+        android:onClick="setClickedYellow"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
