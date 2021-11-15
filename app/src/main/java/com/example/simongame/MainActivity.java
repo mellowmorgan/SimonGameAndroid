@@ -9,6 +9,7 @@ import android.os.Handler;
 import android.view.View;
 
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
@@ -53,6 +54,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }, delay);
                 delay+=2000;
+
             }
             if(newGame.currentPattern.get(i)=="blue"){
 
@@ -72,6 +74,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                 },delay);
                 delay+=2000;
+
             }
             if(newGame.currentPattern.get(i)=="green"){
 
@@ -112,8 +115,33 @@ public class MainActivity extends AppCompatActivity {
                 delay+=2000;
             }
 
+            if (i==newGame.currentPattern.size()-1){
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        // Do something after 2s = 2000ms
+                        testPlayer();
+                    }
+                }, delay);
+            }
 
         }
+
+    }
+    public void testPlayer(){
+        final Handler handler = new Handler();
+        TextView t = findViewById(R.id.textView);
+        t.setText("Copy the color pattern that flashed!");
+
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    // Do something after 2s = 2000ms
+                    Toast.makeText(MainActivity.this, "hi", Toast.LENGTH_SHORT).show();
+                }
+            }, 2000*newGame.round);
+
+       // newGame.currentPattern;
 
     }
 }
