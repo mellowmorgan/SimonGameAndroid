@@ -25,15 +25,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-
             final Button buttonSimon = (Button) findViewById(R.id.buttonSimon);
             buttonSimon.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
-
                     handler.removeCallbacksAndMessages(null);
                     resetColors();
-
                     userColorsClicked = new ArrayList<String>();
                     newGame= new Game();
                     startRound();
@@ -51,18 +47,20 @@ public class MainActivity extends AppCompatActivity {
 //    }
     public void resetColors(){
         //gotta fix this to be gradients default
-        TextView bYellowReset = findViewById(R.id.buttonYellow);
-        TextView bRedReset = findViewById(R.id.buttonRed);
-        TextView bBlueReset = findViewById(R.id.buttonBlue);
-        TextView bGreenReset = findViewById(R.id.buttonGreen);
-        GradientDrawable gradientDrawableReset1 = (GradientDrawable) bYellowReset.getBackground().mutate();
-        gradientDrawableReset1.setColor(Color.YELLOW);
-        GradientDrawable gradientDrawableReset2 = (GradientDrawable) bBlueReset.getBackground().mutate();
-        gradientDrawableReset2.setColor(Color.BLUE);
-        GradientDrawable gradientDrawableReset3 = (GradientDrawable) bGreenReset.getBackground().mutate();
-        gradientDrawableReset3.setColor(Color.GREEN);
-        GradientDrawable gradientDrawableReset4 = (GradientDrawable) bRedReset.getBackground().mutate();
-        gradientDrawableReset4.setColor(Color.RED);
+        TextView bYellowReset1 = findViewById(R.id.buttonYellow);
+        GradientDrawable gradientDrawableReset1 = (GradientDrawable) bYellowReset1.getBackground();
+        gradientDrawableReset1.setColors(new int[] {Color.YELLOW,Color.YELLOW});
+        TextView bGreenReset1 = findViewById(R.id.buttonGreen);
+        GradientDrawable gradientDrawableReset2 = (GradientDrawable) bGreenReset1.getBackground();
+        gradientDrawableReset2.setColors(new int[] {Color.GREEN,Color.GREEN});
+
+        TextView bBlueReset1 = findViewById(R.id.buttonBlue);
+        GradientDrawable gradientDrawableReset3 = (GradientDrawable) bBlueReset1.getBackground();
+        gradientDrawableReset3.setColors(new int[] {Color.BLUE,Color.BLUE});
+
+        TextView bRedReset1 = findViewById(R.id.buttonRed);
+        GradientDrawable gradientDrawableReset4 = (GradientDrawable) bRedReset1.getBackground();
+        gradientDrawableReset4.setColors(new int[] {Color.RED,Color.RED});
 
     }
 
@@ -248,17 +246,101 @@ public class MainActivity extends AppCompatActivity {
 
     public void setClickedGreen(View v){
         userColorsClicked.add("green");
+        TextView bGreen = findViewById(R.id.buttonGreen);
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                // Do something after 2s = 2000ms
+                GradientDrawable gradientDrawable = (GradientDrawable) bGreen.getBackground();
+                gradientDrawable.setColors(new int[] {Color.WHITE,Color.GREEN});
+
+                //  Color.
+
+            }
+        }, 0);
+
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                // Do something after 2s = 2000ms
+                GradientDrawable gradientDrawable = (GradientDrawable) bGreen.getBackground();
+                gradientDrawable.setColors(new int[] {Color.GREEN,Color.GREEN});
+            }
+        }, 400);
+
     }
     public void setClickedYellow(View v){
         userColorsClicked.add("yellow");
+        TextView bYellow = findViewById(R.id.buttonYellow);
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        // Do something after 2s = 2000ms
+                        GradientDrawable gradientDrawable = (GradientDrawable) bYellow.getBackground();
+                        gradientDrawable.setColors(new int[] {Color.WHITE,Color.YELLOW});
+                    }
+                }, 0);
+
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        // Do something after 2s = 2000ms
+                        GradientDrawable gradientDrawable = (GradientDrawable) bYellow.getBackground();
+                        gradientDrawable.setColors(new int[] {Color.YELLOW,Color.YELLOW});
+                    }
+                }, 400);
     }
     public void setClickedRed(View v){
+        TextView bRed = findViewById(R.id.buttonRed);
         userColorsClicked.add("red");
-
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                // Do something after 2s = 2000ms
+                GradientDrawable gradientDrawable = (GradientDrawable) bRed.getBackground();
+                gradientDrawable.setColors(new int[] {Color.parseColor("#ffcccb"),Color.RED});
+                //
+            }
+        },0);
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                // Do something after 2s = 2000ms
+                GradientDrawable gradientDrawable = (GradientDrawable) bRed.getBackground();
+                gradientDrawable.setColors(new int[] {Color.RED,Color.RED});
+            }
+        }, 400);
     }
+
 
     public void setClickedBlue(View v){
+        TextView bBlue = findViewById(R.id.buttonBlue);
         userColorsClicked.add("blue");
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                // Do something after 2s = 2000ms
+                GradientDrawable gradientDrawable = (GradientDrawable) bBlue.getBackground();
+                gradientDrawable.setColors(new int[] {Color.parseColor("#26ABFF"),Color.BLUE});
+                //android:startColor="#26abff"
+                //SetColors(new int[] { Color.Blue, Color.Green
+                //
+            }
+        }, 0);
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                // Do something after 2s = 2000ms
+                GradientDrawable gradientDrawable = (GradientDrawable) bBlue.getBackground();
+                gradientDrawable.setColors(new int[] {Color.BLUE,Color.BLUE});
+            }
+        },400);
+
+//        TextView bBlue = findViewById(R.id.buttonBlue);
+//                GradientDrawable gradientDrawable = (GradientDrawable) bBlue.getBackground();
+//                gradientDrawable.setColors(new int[] {Color.parseColor("#26ABFF"),Color.BLUE});
+
     }
+
 
 }
