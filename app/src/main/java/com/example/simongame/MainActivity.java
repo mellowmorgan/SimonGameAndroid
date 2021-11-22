@@ -25,9 +25,12 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
             final Button buttonSimon = (Button) findViewById(R.id.buttonSimon);
             buttonSimon.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
+                    TextView t2 = findViewById(R.id.textView2);
+                    t2.setVisibility(View.VISIBLE);
                     handler.removeCallbacksAndMessages(null);
                     resetColors();
                     userColorsClicked = new ArrayList<String>();
@@ -72,13 +75,18 @@ public class MainActivity extends AppCompatActivity {
         }
 
 
-        newGame.getPattern();
+
         //final Handler handler = new Handler();
         TextView bYellow = findViewById(R.id.buttonYellow);
         TextView bRed = findViewById(R.id.buttonRed);
         TextView bBlue = findViewById(R.id.buttonBlue);
         TextView bGreen = findViewById(R.id.buttonGreen);
-       int delay=1000;
+       int delay;
+
+        if (newGame.round==1){
+            delay=2000;
+        }else{delay=1000;}
+        newGame.getPattern();
         for(int i=0;i<newGame.currentPattern.size();i++){
             if(newGame.currentPattern.get(i)=="yellow") {
                 handler.postDelayed(new Runnable() {
@@ -226,7 +234,7 @@ public class MainActivity extends AppCompatActivity {
        // final Handler handler = new Handler();
         if(userEval){
             TextView t = findViewById(R.id.textView);
-            t.setText("Correct. Get ready for round "+newGame.round);
+            t.setText("Correct. Get ready for round "+newGame.round+".");
             handler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
