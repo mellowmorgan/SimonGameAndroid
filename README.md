@@ -1,9 +1,8 @@
 # Simon Game Android App
-![image of webpage](./src/img/screenshotwebpage.png)
 #### An Android app of Simon game, based on the classic memory game toy.
 
 #### By Morgan Waites
-![imageOfSimonApp](./simonPic.png)
+
 ## Technologies Used
 
 * Java
@@ -24,3 +23,5 @@ The toy image has four different colors that light up in a pattern that gets pro
 ## License
 
 [MIT](https://opensource.org/licenses/MIT) Copyright 2021 Morgan Waites.
+
+![imageOfSimonApp](./simonPic.png)
