@@ -13,7 +13,9 @@ The toy image has four different colors that light up in a pattern that gets pro
 
 ## Setup/Installation Requirements
 
-* Buit in Android Studio, requires Android Studio to run project folder
+* Built in Android Studio, requires Android Studio to run project folder. 
+* If you have Android Studio installed(free), open project from start then go up to top ribbon where they is green play button, to left select/add device then click 'run'/green play button.
+* Will have it downloadable for free on Google Play for android devices soon!!
 
 ## Known Bugs
 
