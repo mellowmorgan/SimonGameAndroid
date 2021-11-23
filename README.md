@@ -3,7 +3,7 @@
 #### An Android app of Simon game, based on the classic memory game toy.
 
 #### By Morgan Waites
-
+![imageOfSimonApp](./simonPic.png)
 ## Technologies Used
 
 * Java
