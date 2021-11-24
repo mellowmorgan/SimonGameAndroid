@@ -19,7 +19,7 @@ The toy image has four different colors that light up in a pattern that gets pro
 
 ## Known Bugs
 
-* Tested for Pixel 3, 4 system/devices, sizing, margins off for other devices, needs work on optimization, for instance, when run on Galaxy Nexus emulator, restart text at bottom not visible/cut off.
+* Might not be optimized for all devices/screen sizes. Checked several but not all.
 * Not production ready. Need to deploy on Google Play but reluctant to pay the $25 account fee.
 
 ## License
